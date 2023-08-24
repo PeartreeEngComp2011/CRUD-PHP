@@ -7,12 +7,14 @@
     <h1>Editar Tarefa</h1>
     <a href="index.php">Voltar para a lista de tarefas</a>
     <?php
-    if (isset($_GET["id"])) {
+    if (isset($_GET["id"])) 
+    {
         $id = $_GET["id"];
         
         // Conexão com o banco de dados
         $conn = new mysqli("localhost", "root", "", "job");
-        if ($conn->connect_error) {
+        if ($conn->connect_error) 
+        {
             die("Erro na conexão: " . $conn->connect_error);
         }
 
@@ -20,7 +22,8 @@
         $sql = "SELECT * FROM tarefas WHERE id = $id";
         $result = $conn->query($sql);
 
-        if ($result->num_rows == 1) {
+        if ($result->num_rows == 1) 
+        {
             $row = $result->fetch_assoc();
             echo "<form action='update_task.php' method='post'>";
             echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
@@ -35,7 +38,8 @@
         }
 
         $conn->close();
-    } else {
+    } else 
+    {
         echo "ID da tarefa não especificado.";
     }
     ?>

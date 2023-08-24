@@ -1,11 +1,13 @@
 <?php
-if (isset($_GET["id"])) {
+if (isset($_GET["id"])) 
+{
     $task_id = $_GET["id"];
 
     // Conexão com o banco de dados
     $conn = new mysqli("localhost", "root", "", "job");
     // Testando a conexão
-    if ($conn->connect_error) {
+    if ($conn->connect_error) 
+    {
         die("Erro na conexão: " . $conn->connect_error);
     }
 
@@ -13,7 +15,8 @@ if (isset($_GET["id"])) {
     $sql = "DELETE FROM tarefas WHERE id = ?";
     $stmt = $conn->prepare($sql);
 
-    if ($stmt) {
+    if ($stmt) 
+    {
         // Vincular o parâmetro ID à consulta
         $stmt->bind_param("i", $task_id);
 
@@ -33,7 +36,8 @@ if (isset($_GET["id"])) {
 
     // Fechar a conexão com o banco de dados
     $conn->close();
-} else {
+} else 
+{
     echo "ID da tarefa não especificado.";
 }
 ?>

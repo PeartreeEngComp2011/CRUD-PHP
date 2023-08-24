@@ -6,25 +6,30 @@
 
 <!-- Dando um estilo para a tabela -->
 <style>
-    table {
+    table 
+    {
         width: 100%;
         border-collapse: collapse;
     }
 
-    table, th, td {
+    table, th, td 
+    {
         border: 1px solid black;
     }
 
-    th, td {
+    th, td 
+    {
         padding: 8px;
         text-align: left;
     }
 
-    th {
+    th 
+    {
         background-color: #f2f2f2;
     }
 
-    a {
+    a 
+    {
         text-decoration: none;
     }
 </style>
@@ -52,15 +57,18 @@
         $sql = "SELECT * FROM tarefas";
         $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
+        if ($result->num_rows > 0) 
+        {
+            while ($row = $result->fetch_assoc()) 
+            {
                 echo "<tr>";
                 echo "<td>" . $row["titulo"] . "</td>";
                 echo "<td>" . $row["descricao"] . "</td>";    
                 echo "<td><a href='edit_task.php?id=" . $row["id"] . "'>Editar</a> | <a href='delete_task.php?id=" . $row["id"] . "'>Excluir</a></td>";
                 echo "</tr>";
             }
-        } else {
+        } else 
+        {
             echo "<tr><td colspan='3'>Nenhuma tarefa encontrada.</td></tr>";
         }
 
